@@ -1,22 +1,16 @@
-class Queue:
-    def __init__(self):
-        self.queue = []
-    def enque(self,item):
-        self.queue.append(item)
-    def deque(self):
-        return self.queue.pop(0)
-    def top(self):
-        return self.queue[len(self.queue)-1]
-    def return_queue(self):
-        return self.queue
-q=Queue()
-q.enque(1)
-q.enque(2)
-q.enque(3)
-q.enque(4)
-print(f"Queue: {q.return_queue()}")
-print(f"Top: {q.top()}")
-q.deque()
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
 
-print(f"Queue: {q.return_queue()}")
-print(f"Top: {q.top()}")
+np.random.seed(19680801)  # seed the random number generator.
+data = {'a': np.arange(50),
+        'c': np.random.randint(0, 50, 50),
+        'd': np.random.randn(50)}
+data['b'] = data['a'] + 10 * np.random.randn(50)
+data['d'] = np.abs(data['d']) * 100
+
+fig, ax = plt.subplots(figsize=(5, 2.7), layout='constrained')
+ax.scatter('a', 'b', c='c', s='d', data=data)
+ax.set_xlabel('entry a')
+ax.set_ylabel('entry b')
+# %%
